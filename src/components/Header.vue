@@ -6,7 +6,7 @@
         <ul>
           <router-link tag="li" activeClass="active" exact to="/"><a>Home</a></router-link>
           <router-link tag="li" activeClass="active" to="/about"><a>About</a></router-link>
-          <a href="" tag="li" target="_blank"> <img src="../assets/github.svg" alt="" class="image"> </a>
+          <a href="https://github.com/timothyokooboh/dictionary" tag="li" target="_blank"> <img src="../assets/github.svg" alt="" class="image"> </a>
         </ul>
       </div>
       <span tag="li" class="menu-icon" @click="showRightMenu">&#9776;</span>
@@ -20,7 +20,7 @@
           <router-link activeClass="active" to="/about"><a>About</a></router-link>
         </div>
         <div>
-          <a href="" tag="li" target="_blank"> <img src="../assets/github.svg" alt="" class="image"> </a>
+          <a href="https://github.com/timothyokooboh/dictionary" tag="li" target="_blank"> <img src="../assets/github.svg" alt="" class="image"> </a>
         </div>
       </div>
     </transition>

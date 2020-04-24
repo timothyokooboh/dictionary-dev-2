@@ -15,8 +15,8 @@
       "src":"./img/icons/android-chrome-maskable-512x512.png","sizes":"512x512","type":"image/png","purpose":"maskable"
     }
   ],
- "start_url":"/",
- "scope":".",
+ "start_url":"/dictionary/index.html",
+ "scope":"/dictionary/",
  "display":"standalone",
  "orientation":"portrait-primary", 
  "background_color":"#fff",

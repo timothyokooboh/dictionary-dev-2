@@ -8,7 +8,7 @@
     </div>
     <div class="result-section">
       <div v-if="loading">Loading...</div>
-      <div v-if="!success" class="error">Sorry! Word not found. Try another word or check <a href="https://www.thesaurus.com/" target="_blank"> here</a></div>
+      <div v-if="!success" class="error">Something went wrong. Either your internet connetion is poor or word is not found. Try again. </div>
       <div v-if="!networkSuccess" class="error">Network error! Try refreshing the page</div>
       <ul v-for="(definition, index) in definitions" :key="index">
         <li>
@@ -57,23 +57,28 @@ export default {
   },
   methods: {
     dictionary () {
-      const client = Owlbot('1a6579739b9442d441282610641b8dc2f9edd03e')
-      this.loading = true
-      const vm = this
-      client.define(this.userInput).then(function (result) {
-        vm.loading = false
-        vm.success = true
-        vm.definitions = result.definitions
-        vm.pronunciation = result.pronunciation
-        vm.word = result.word
-        vm.userInput = ''
-        console.log(result)
-      }).catch((error) => {
-        vm.loading = false
-        vm.success = false
-        vm.userInput = ''
-        console.log(error)
-      })
+      if (this.userInput === '') {
+        alert('Text field can not be empty')
+      } else {
+        const client = Owlbot('1a6579739b9442d441282610641b8dc2f9edd03e')
+        this.loading = true
+        const vm = this
+        client.define(this.userInput).then(function (result) {
+          vm.loading = false
+          vm.success = true
+          vm.definitions = result.definitions
+          vm.pronunciation = result.pronunciation
+          vm.word = result.word
+          vm.userInput = ''
+          vm.networkSuccess = true
+          console.log(result)
+        }).catch((error) => {
+          vm.loading = false
+          vm.success = false
+          vm.userInput = ''
+          console.log(error)
+        })
+      }
     },
     speak () {
       const synth = window.speechSynthesis // instantiates the speechSynthesis API
